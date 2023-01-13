@@ -12,8 +12,8 @@ const createWorker = (url: string) => {
 }
 
 export const setupMonacoWorkers = () => {
-  window.MonacoEnvironment = {
-    getWorker: (_, label): any => {
+  (window as any).MonacoEnvironment = {
+    getWorker: (_: any, label: string): any => {
       switch (label) {
         case 'css':
           return createWorker(cssWorker)
