@@ -58,7 +58,7 @@ export class MonacoEditor extends LitElement {
     }
   }
 
-  @watch('theme')
+  @watch('theme', { waitUntilFirstUpdate: true })
   async handleThemeChange() {
     if (!Themes[this.theme]) {
       return console.warn(`"${this.theme}" theme is not provided in the bundle`)
@@ -68,8 +68,8 @@ export class MonacoEditor extends LitElement {
     this.monaco.editor.setTheme(this.theme)
   }
 
-  @watch('language')
-  async handleLanguageChange() {
+  @watch('language', { waitUntilFirstUpdate: true })
+  handleLanguageChange(){
     if (!Languages[this.language]) {
       return console.warn(`"${this.language}" language is not included in the bundle`)
     }
@@ -95,7 +95,7 @@ export class MonacoEditor extends LitElement {
     }
   }
 
-  async initialize() {
+  initialize = async () => {
     const [monaco, styles] = await dependencies!
     this.monaco = monaco
     this.monacoStyles = styles.default
