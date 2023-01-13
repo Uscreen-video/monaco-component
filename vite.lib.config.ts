@@ -5,14 +5,12 @@ export default defineConfig({
   experimental: {
     renderBuiltUrl(filename: string, { hostType }: { hostType: 'js' | 'css' | 'html' }) {
       if (hostType === 'js') {
-        return { runtime: `window.__monaco_component_base(${JSON.stringify(filename)})` }
+        return { runtime: `window.__monaco_component_module_base(${JSON.stringify(filename)})` }
       } else {
         return { relative: true }
       }
     }
   },
-  
-  
   build: {
     rollupOptions: {
       output: {
