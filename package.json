@@ -3,14 +3,19 @@
   "version": "0.0.1",
   "description": "Monaco editor as web-component",
   "type": "module",
-  "main": "dist/monaco-component.es.js",
+  "main": "lib/monaco-component.es.js",
   "exports": {
-    ".": "./dist/monaco-component.es.js"
+    ".": "./lib/monaco-component.es.js"
   },
   "types": "types/monaco-component.d.ts",
+  "files": [
+    "dist",
+    "types",
+    "lib"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc & vite build & vite build -c vite.lib.config.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,7 +23,7 @@
     "editor",
     "web-component"
   ],
-  "author": "Uscreen",
+  "author": "Uscreen <support@uscreen.tv> (https://www.uscreen.tv)",
   "license": "MIT",
   "dependencies": {
     "lit": "^2.6.1",

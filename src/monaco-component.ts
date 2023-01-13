@@ -12,8 +12,8 @@ import { Dependencies, Languages, Monaco, Themes } from './types'
 
 let dependencies: Dependencies | undefined = undefined;
 
-@customElement('monaco-component')
-export class MonacoComponent extends LitElement {
+@customElement('monaco-editor')
+export class MonacoEditor extends LitElement {
   static styles = unsafeCSS(styles)
 
   /** Initial value */
@@ -34,7 +34,7 @@ export class MonacoComponent extends LitElement {
   theme: keyof typeof Themes = 'github'
 
   @property()
-  language: keyof typeof Languages = Languages.css
+  language: keyof typeof Languages = Languages.javascript
 
   @property({ type: Boolean })
   disabled = false
