@@ -1,6 +1,6 @@
 {
   "name": "monaco-component",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Monaco editor as web-component",
   "type": "module",
   "main": "dist/index-legacy.js",
