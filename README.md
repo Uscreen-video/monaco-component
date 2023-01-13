@@ -40,6 +40,9 @@ Load from a CDN
   window.__monaco_component_base = function(filename) {
     return 'https://unpkg.com/monaco-component@latest/dist/' + filename
   }
+  window.__monaco_component_module_base = function(filename) {
+    return 'https://unpkg.com/monaco-component@latest/lib/' + filename
+  }
 </script>
 <script type="module" src="https://unpkg.com/monaco-component@latest/lib/monaco-component.js"></script>
 <script nomodule src="https://unpkg.com/monaco-component@latest/dist/index.js"></script>
