@@ -43,7 +43,7 @@ Load from a CDN
 </script>
 <script type="module" crossorigin src="https://unpkg.com/monaco-component@latest/dist/index.js"></script>
 <script nomodule crossorigin src="https://unpkg.com/monaco-component@latest/dist/polyfills-legacy.js"></script>
-<script nomodule crossorigin>System.import('https://unpkg.com/monaco-component@latest/dist/index.js')</script>
+<script nomodule crossorigin>System.import('https://unpkg.com/monaco-component@latest/dist/index-legacy.js')</script>
 ```
 Install using NPM packages
 ```sh

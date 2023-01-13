@@ -5,14 +5,13 @@ import { getOrCreateModel } from './utils/model'
 import { watch } from './utils/watch'
 import { emit } from './utils/event'
 import { createHiddenInput } from './utils/input'
-import { loadDependencies } from './utils/load'
+import { loadDependencies, loadTheme } from './utils/load'
 
 import type { editor } from 'monaco-editor'
 import { Dependencies, Languages, Monaco, Themes } from './types'
 
 let dependencies: Dependencies | undefined = undefined;
 
-@customElement('monaco-editor')
 export class MonacoEditor extends LitElement {
   static styles = unsafeCSS(styles)
 
@@ -59,9 +58,27 @@ export class MonacoEditor extends LitElement {
     }
   }
 
+  @watch('theme')
+  async handleThemeChange() {
+    if (!Themes[this.theme]) {
+      return console.warn(`"${this.theme}" theme is not provided in the bundle`)
+    }
+    const theme = await loadTheme(this.theme)
+    this.monaco.editor.defineTheme(this.theme, theme)
+    this.monaco.editor.setTheme(this.theme)
+  }
+
+  @watch('language')
+  async handleLanguageChange() {
+    if (!Languages[this.language]) {
+      return console.warn(`"${this.language}" language is not included in the bundle`)
+    }
+    this.editor?.dispose()
+    this.createEditor()
+  }
+
   protected firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
     this.initialize()
-    window.addEventListener('resize', this.resizeEditor);
   }
 
   connectedCallback(): void {
@@ -82,7 +99,15 @@ export class MonacoEditor extends LitElement {
     const [monaco, styles] = await dependencies!
     this.monaco = monaco
     this.monacoStyles = styles.default
-  
+    
+    this.createEditor()
+
+    window.addEventListener('resize', this.resizeEditor)
+
+    emit(this, 'ready')
+  }
+
+  createEditor() {
     const model = getOrCreateModel(
       this.monaco,
       this.filename || this.name,
@@ -131,4 +156,8 @@ export class MonacoEditor extends LitElement {
       <div class="container"></div>
     `
   }
+}
+
+if (!customElements.get('monaco-editor')) {
+  customElement('monaco-editor')(MonacoEditor)
 }

@@ -20,10 +20,11 @@ export const createModel = (
 
 export const getOrCreateModel = (
   monaco: Monaco,
-  path: string = nanoid(),
+  path: string,
   value: string,
   language: keyof typeof Languages
 ) => {
-  const _path = Languages.typescript || Languages.javascript ? `ts://${path}.tsx` : `inmemory://${path}`
-  return getModel(monaco, _path) || createModel(monaco, path, value, language)
+  const pathString = path || nanoid()
+  const _path = Languages.typescript || Languages.javascript ? `ts://${pathString}.tsx` : `inmemory://${pathString}`
+  return getModel(monaco, _path) || createModel(monaco, _path, value, language)
 }
