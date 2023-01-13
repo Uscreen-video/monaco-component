@@ -40,12 +40,10 @@ Load from a CDN
   window.__monaco_component_base = function(filename) {
     return 'https://unpkg.com/monaco-component@latest/dist/' + filename
   }
-  window.__monaco_component_module_base = function(filename) {
-    return 'https://unpkg.com/monaco-component@latest/lib/' + filename
-  }
 </script>
-<script type="module" src="https://unpkg.com/monaco-component@latest/lib/monaco-component.js"></script>
-<script nomodule src="https://unpkg.com/monaco-component@latest/dist/index.js"></script>
+<script type="module" crossorigin src="https://unpkg.com/monaco-component@latest/dist/index.js"></script>
+<script nomodule crossorigin src="https://unpkg.com/monaco-component@latest/dist/polyfills-legacy.js"></script>
+<script nomodule crossorigin>System.import('https://unpkg.com/monaco-component@latest/dist/index.js')</script>
 ```
 Install using NPM packages
 ```sh
