@@ -1,9 +1,15 @@
 import { defineConfig } from 'vite'
+import legacy from '@vitejs/plugin-legacy'
 import license from 'rollup-plugin-license'
 import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11'],
+    }),
+  ],
   experimental: {
     renderBuiltUrl(filename: string, { hostType }: { hostType: 'js' | 'css' | 'html' }) {
       if (hostType === 'js') {
@@ -14,8 +20,6 @@ export default defineConfig({
     }
   },
   build: {
-    target: 'es2015',
-    minify: 'terser',
     rollupOptions: {
       plugins: [
         license({
