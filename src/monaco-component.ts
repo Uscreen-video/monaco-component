@@ -123,7 +123,6 @@ export class MonacoEditor extends LitElement {
         model,
         language: this.language,
         readOnly: this.disabled,
-        formatOnPaste: true,
         minimap: {
           enabled: true
         },
@@ -133,7 +132,6 @@ export class MonacoEditor extends LitElement {
     })
 
     this.editor.addCommand(this.monaco.KeyMod.CtrlCmd | this.monaco.KeyCode.KeyS, () => {
-      this.formatCode()
       emit(this, 'submit')
     })
 
