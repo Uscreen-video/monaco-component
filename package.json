@@ -15,7 +15,8 @@
   "scripts": {
     "manifest": "custom-elements-manifest analyze",
     "dev": "concurrently \"pnpm manifest --watch\" \"storybook dev --port 6006\"",
-    "build": "tsc && vite build && pnpm run manifest && storybook build",
+    "build": "concurrently \"tsc\" \"vite build\"",
+    "build:storybook": "pnpm run manifest && storybook build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
