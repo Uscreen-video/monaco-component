@@ -8,7 +8,7 @@ specifiers:
   '@storybook/web-components': ^7.0.0-beta.47
   '@storybook/web-components-vite': ^7.0.0-beta.47
   '@vitejs/plugin-legacy': ^3.0.1
-  cem-plugin-better-lit-types: ^0.1.17
+  cem-plugin-better-lit-types: ^0.2.0
   concurrently: ^7.3.0
   gh-pages: ^5.0.0
   lit: ^2.6.1
@@ -38,7 +38,7 @@ devDependencies:
   '@storybook/web-components': 7.0.0-beta.47_7zfklryahohurxseda5523n5je
   '@storybook/web-components-vite': 7.0.0-beta.47_5yeichwmk2ssndfer44qezgzei
   '@vitejs/plugin-legacy': 3.0.2_terser@5.16.3+vite@4.1.1
-  cem-plugin-better-lit-types: 0.1.17
+  cem-plugin-better-lit-types: 0.2.0
   concurrently: 7.6.0
   gh-pages: 5.0.0
   lit-html: 2.6.1
@@ -3224,8 +3224,8 @@ packages:
     resolution: {integrity: sha512-Lkp0vFjMkBB3GTpLR8zk4NwW5EdRdnitwYJHDOOKIU85x4ckYCPQ+9WlVvSVClHxVReefkUMtWZH2l9KGlD51w==}
     dev: true
 
-  /cem-plugin-better-lit-types/0.1.17:
-    resolution: {integrity: sha512-+Fiu/gzvarjyevX93u4txw7rLS+3c9jZCQCHDJxxWCiCXhxDVhqGqxGwiyNlWFyLbvmsg9x4KxqYXp5FxG3H+A==}
+  /cem-plugin-better-lit-types/0.2.0:
+    resolution: {integrity: sha512-M/ySDk6d/579fGax9CfqXk/z5F4go5/c2CqxHO/cFR73Ilvkj8v85GbklWVlYNd5LfI7nOLpPbEmBAWvhOUbJg==}
     optionalDependencies:
       '@open-wc/lit-helpers': 0.5.1_lit@2.6.1
       lit: 2.6.1
