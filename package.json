@@ -17,6 +17,7 @@
     "dev": "concurrently \"pnpm manifest --watch\" \"storybook dev --port 6006\"",
     "build": "concurrently \"tsc\" \"vite build\"",
     "build:storybook": "pnpm run manifest && storybook build",
+    "publish": "gh-pages -d storybook-static",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -43,6 +44,7 @@
     "@vitejs/plugin-legacy": "^3.0.1",
     "cem-plugin-better-lit-types": "^0.1.17",
     "concurrently": "^7.3.0",
+    "gh-pages": "^5.0.0",
     "lit-html": "^2.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
