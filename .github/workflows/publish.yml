@@ -41,10 +41,10 @@ jobs:
       - name: Build 🔧
         run: pnpm run build
 
-      - name: Publish package on NPM 📦
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - id: publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
 
       - name: Deploy Github Page
         uses: peaceiris/actions-gh-pages@v3
