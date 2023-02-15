@@ -104,3 +104,5 @@ lib
 
 # TernJS port file
 .tern-port
+
+storybook-static/
