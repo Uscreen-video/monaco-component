@@ -1,6 +1,6 @@
 {
   "name": "monaco-component",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Monaco editor as web-component",
   "type": "module",
   "main": "dist/index-legacy.js",
@@ -15,7 +15,7 @@
   "scripts": {
     "manifest": "custom-elements-manifest analyze",
     "dev": "concurrently \"pnpm manifest --watch\" \"storybook dev --port 6006\"",
-    "build": "concurrently \"tsc\" \"vite build\"",
+    "build": "concurrently \"tsc\" \"vite build -c vite.lib.config.ts\" \"pnpm run build:storybook\"",
     "build:storybook": "pnpm run manifest && storybook build",
     "publish": "gh-pages -d storybook-static",
     "test": "echo \"Error: no test specified\" && exit 1"
