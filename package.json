@@ -26,7 +26,7 @@
     "web-component"
   ],
   "author": "Uscreen <support@uscreen.tv> (https://www.uscreen.tv)",
-  "homepage": "https://github.com/Uscreen-video/monaco-component#readme",
+  "homepage": "https://uscreen-video.github.io/monaco-component",
   "license": "MIT",
   "dependencies": {
     "lit": "^2.6.1",
