@@ -13,8 +13,9 @@
     "types"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "manifest": "custom-elements-manifest analyze",
+    "dev": "concurrently \"pnpm manifest --watch\" \"storybook dev --port 6006\"",
+    "build": "concurrently \"tsc\" \"vite build\" \"storybook build\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -32,8 +33,20 @@
     "nanoid": "^4.0.0"
   },
   "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.6.3",
+    "@storybook/addon-essentials": "^7.0.0-beta.47",
+    "@storybook/addon-links": "^7.0.0-beta.47",
+    "@storybook/blocks": "^7.0.0-beta.47",
+    "@storybook/web-components": "^7.0.0-beta.47",
+    "@storybook/web-components-vite": "^7.0.0-beta.47",
     "@vitejs/plugin-legacy": "^3.0.1",
+    "cem-plugin-better-lit-types": "^0.1.17",
+    "concurrently": "^7.3.0",
+    "lit-html": "^2.6.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rollup-plugin-license": "^3.0.1",
+    "storybook": "^7.0.0-beta.47",
     "terser": "^5.16.1",
     "typescript": "^4.9.4",
     "vite": "^4.0.4"
